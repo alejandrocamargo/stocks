@@ -47,6 +47,11 @@ public class Beans {
     }
 
     @Bean
+    public OddsCalculationService oddsCalculationService() {
+        return new OddsCalculationServiceImpl(dax30Repository, ibex35Repository, yahooImporterService(), xmlMapper());
+    }
+
+    @Bean
     public CandleStickService candleStickService() {
         return new CandleStickServiceImpl(ibex35Repository, dax30Repository);
     }
